@@ -107,7 +107,7 @@ while True:
 
     #     print(f"\n{city} has been added or updated successfully!")
 
-    if choice == "1":
+    if choice == "1": 
         add_city_data()
 
     elif choice == "8":
