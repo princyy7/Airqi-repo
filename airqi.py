@@ -251,3 +251,10 @@ while True:
 
 
 
+#finding the city with the lowest aqi
+    lowest_aqi = min(air_quality_data.values())
+
+    for city, aqi in air_quality_data.items():
+        if aqi == lowest_aqi:
+            print(f"\nLowest AQI: {city} = {aqi}")
+
