@@ -32,8 +32,22 @@ def display_city_data():
 
 def add_city_data():
 
-    city = input("\nEnter city name: ")
-    aqi = float(input("Enter AQI value: "))
+    city = input("\nEnter city name: ").strip()
+
+    if city == "":
+        print("Error: City name cannot be empty!")
+        return
+
+    try:
+        aqi = float(input("Enter AQI value: "))
+
+        if aqi < 0:
+            print("Error: AQI cannot be negative!")
+            return
+
+    except ValueError:
+        print("Error: Please enter a valid number!")
+        return
 
     air_quality_data.update({city: aqi})
 
@@ -193,6 +207,9 @@ while True:
 
         print(f"\nAverage AQI: {average_aqi:.2f}")
 
+    else:
+        print("\nInvalid choice! Please enter a number between 1 and 8.")
+
 
 # # Finding the city with the highest AQI
 
@@ -250,11 +267,4 @@ while True:
 
 
 
-
-#finding the city with the lowest aqi
-    lowest_aqi = min(air_quality_data.values())
-
-    for city, aqi in air_quality_data.items():
-        if aqi == lowest_aqi:
-            print(f"\nLowest AQI: {city} = {aqi}")
 
